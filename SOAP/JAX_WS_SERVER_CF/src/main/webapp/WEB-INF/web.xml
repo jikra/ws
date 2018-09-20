@@ -10,9 +10,7 @@
         </listener-class>
     </listener>
 
-    <servlet>
-        <description>JAX-WS endpoint</description>
-        <display-name>The JAX-WS servlet</display-name>
+    <servlet>    
         <servlet-name>jaxws</servlet-name>
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
     </servlet>
