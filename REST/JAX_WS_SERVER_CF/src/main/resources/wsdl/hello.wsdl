@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:tns="http://ws.cizek.cz"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             targetNamespace="http://ws.cizek.cz">
+
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://ws.cizek.cz" schemaLocation="hello.xsd"/>
+        </xsd:schema>
+    </types>
+
+    <message name="sayHelloRequest">
+        <part name="parameters" element="tns:sayHelloRequest"/>
+    </message>
+
+    <message name="sayHelloResponse">
+        <part name="parameters" element="tns:sayHelloResponse"/>
+    </message>
+
+    <portType name="sayHelloPT">
+        <operation name="sayHello">
+            <input message="tns:sayHelloRequest"/>
+            <output message="tns:sayHelloResponse"/>
+        </operation>
+    </portType>
+
+    <binding name="sayHelloPortBinding" type="tns:sayHelloPT">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <operation name="sayHello">
+            <input>
+                <soap:body parts="parameters" use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+
+    <service name="sayHelloService">
+        <port name="sayHelloPort" binding="tns:sayHelloPortBinding">
+            <soap:address location="http://localhost:8888/ws/hello"/>
+        </port>
+    </service>
+
+</definitions>
