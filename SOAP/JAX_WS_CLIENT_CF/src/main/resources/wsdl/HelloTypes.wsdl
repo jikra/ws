@@ -1,0 +1,19 @@
+<definitions xmlns:tns="http://ws.cizek.cz" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://ws.cizek.cz">
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://ws.cizek.cz" schemaLocation="hello.xsd" />
+        </xsd:schema>
+    </types>
+    <message name="sayHello">
+        <part name="parameters" element="tns:sayHelloRequest" />
+    </message>
+    <message name="sayHelloResponse">
+        <part name="parameters" element="tns:sayHelloResponse" />
+    </message>
+    <portType name="sayHelloPT">
+        <operation name="sayHello">
+            <input xmlns:ns1="http://www.w3.org/2007/05/addressing/metadata" ns1:Action="http://ws.cizek.cz/sayHelloPT/sayHelloRequest" message="tns:sayHello" />
+            <output xmlns:ns2="http://www.w3.org/2007/05/addressing/metadata" ns2:Action="http://ws.cizek.cz/sayHelloPT/sayHelloResponse" message="tns:sayHelloResponse" />
+        </operation>
+    </portType>
+</definitions>

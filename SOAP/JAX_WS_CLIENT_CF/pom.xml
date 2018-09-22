@@ -31,7 +31,7 @@
                         </goals>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>helloWorld.wsdl</wsdlFile>
+                                <wsdlFile>HelloService.wsdl</wsdlFile>
                             </wsdlFiles>
                             <wsdlDirectory>${project.basedir}/src/main/resources/wsdl</wsdlDirectory>
                         </configuration>
